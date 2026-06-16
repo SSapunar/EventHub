@@ -15,7 +15,7 @@
       <tr>
         <td><%= link_to review.user.name, user_path(review.user) %></td>
         <td><%= link_to review.event.name, event_path(review.event) %></td>
-        <td>⭐ <%= review.rating %>/5</td>
+        <td><%= review.rating %>/5</td>
         <td><%= truncate(review.comment, length: 60) %></td>
         <td><%= link_to "View", review_path(review), class: "btn btn-sm btn-outline-primary" %></td>
       </tr>
