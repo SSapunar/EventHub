@@ -1,6 +1,6 @@
 class RegistrationPolicy < ApplicationPolicy
   def index?
-    true
+    user.present?
   end
 
   def show?

@@ -3,7 +3,12 @@ class RegistrationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @registrations = Registration.includes(:user, :event).all
+    @registrations = if current_user.admin?
+      Registration.includes(:user, :event).all
+    else
+      Registration.includes(:user, :event).where(user: current_user)
+    end
+    authorize @registrations
   end
 
   def show
